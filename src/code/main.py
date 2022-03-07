@@ -39,7 +39,9 @@ def post_twitter(img_path, caption):
 
   api = tweepy.API(authenticator, wait_on_rate_limit=True)
 
-  api.upload_with_image(img_path, status=caption)
+  media = api.media_upload(img_path)
+  api.update_status(status=caption, media_ids=[media.media_id])
+  
   print("Tried to upload pic to twitter")
 
 
