@@ -1,6 +1,7 @@
 from instabot import Bot
 from time import sleep
 import schedule
+import tweepy
 from info import *
 
 bot = Bot()
@@ -17,8 +18,9 @@ def post_pic():
   
   img_path = "../files/monke.jpg"
 
+  print(f"Posting day {day}...")
   post_instagram(bot, img_path, ig_caption)
-  post_twitter()
+  post_twitter(img_path, caption)
 
 
 def post_instagram(bot, img_path, caption):
@@ -30,9 +32,16 @@ def post_instagram(bot, img_path, caption):
   else:
     print("Pic was uploaded successfully to instagram" )
 
-def post_twitter():
-  pass
-  
+
+def post_twitter(img_path, caption):
+  authenticator = tweepy.OAuthHandler(api_key, api_key_secret)
+  authenticator.set_access_token(access_token, access_token_secret)
+
+  api = tweepy.API(authenticator, wait_on_rate_limit=True)
+
+  api.upload_with_image(img_path, status=caption)
+  print("Tried to upload pic to twitter")
+
 
 schedule.every().day.at("19:00").do(post_pic)
 
