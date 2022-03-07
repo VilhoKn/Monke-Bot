@@ -6,7 +6,7 @@ from info import username, password
 bot = Bot()
 bot.login(username=username, password=password)
 
-def post_pick():
+def post_pic():
   with open("../files/day.txt", "r") as f:
     day = int(f.read()) + 1
   with open("../files/day.txt", "w") as f:
@@ -23,10 +23,5 @@ def post_pick():
     print(f"Error: {bot.api.last_response}")
   else:
     print("Pic was uploaded successfully")
-    
 
-schedule.every().day.at("19:00").do(post_pick)
-
-while True:
-  schedule.run_pending()
-  sleep(1)
+post_pic()
