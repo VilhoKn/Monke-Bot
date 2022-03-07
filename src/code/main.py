@@ -12,18 +12,27 @@ def post_pic():
   with open("../files/day.txt", "w") as f:
     f.write(str(day))
 
-  caption = f"Day {day} #spoonkid #dinkbot #blazed #monke #monkeclothing #funeemonkee #pietown #rust #majorbagalert #goomba #twitch #youtube"
+  caption = f"Day {day}"
+  ig_caption = caption + " #spoonkid #dinkbot #blazed #monke #monkeclothing #funeemonkee #pietown #rust #majorbagalert #goomba #twitch #youtube"
   
-  image_path = "../files/monke.jpg"
+  img_path = "../files/monke.jpg"
 
-  bot.upload_photo(image_path, caption=caption)
-  print("Tried to upload pic")
-  
+  post_instagram(bot, img_path, ig_caption)
+  post_twitter()
+
+
+def post_instagram(bot, img_path, caption):
+  bot.upload_photo(img_path, caption=caption)
+  print("Tried to upload pic to instagram")
+
   if bot.api.last_response.status_code != 200:
-    print(f"Error: {bot.api.last_response}")
+    print(f"Instagram Error: {bot.api.last_response}")
   else:
-    print("Pic was uploaded successfully")
-    
+    print("Pic was uploaded successfully to instagram" )
+
+def post_twitter():
+  pass
+  
 
 schedule.every().day.at("19:00").do(post_pic)
 
