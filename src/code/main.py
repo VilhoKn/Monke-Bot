@@ -1,7 +1,7 @@
 from instabot import Bot
 from time import sleep
 import schedule
-from info import username, password
+from info import *
 
 bot = Bot()
 bot.login(username=username, password=password)
