@@ -4,6 +4,10 @@ import schedule
 import tweepy
 from info import *
 
+import os
+if os.path.isfile("config/daily_monke_pic_uuid_and_cookie.json"):
+    os.remove("config/daily_monke_pic_uuid_and_cookie.json")
+
 bot = Bot()
 bot.login(username=username, password=password)
 
