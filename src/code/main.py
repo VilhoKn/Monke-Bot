@@ -3,12 +3,13 @@ from time import sleep
 import schedule
 import tweepy
 from info import *
-
 import os
-if os.path.isfile("config/daily_monke_pic_uuid_and_cookie.json"):
-	os.remove("config/daily_monke_pic_uuid_and_cookie.json")
+
 
 def post_pic():
+	if os.path.isfile("config/daily_monke_pic_uuid_and_cookie.json"):
+		os.remove("config/daily_monke_pic_uuid_and_cookie.json")
+		
 	with open("../files/day.txt", "r") as f:
 		day = int(f.read()) + 1
 	with open("../files/day.txt", "w") as f:
