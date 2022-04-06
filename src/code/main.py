@@ -33,8 +33,15 @@ def post_instagram(img_path, caption):
 
 	if bot.api.last_response.status_code != 200:
 		print(f"Instagram Error: {bot.api.last_response}")
+
+		return
 	else:
 		print("Pic upload ended with status code 200" )
+
+	latest_media = bot.get_your_medias()[0]
+
+	bot.like(latest_media)
+	print("Tried to like latest media")
 
 
 def post_twitter(img_path, caption):
