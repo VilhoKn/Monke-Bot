@@ -38,9 +38,7 @@ def post_instagram(img_path, caption):
 	else:
 		print("Pic upload ended with status code 200" )
 
-	latest_media = bot.get_your_medias()[0]
-
-	bot.like(latest_media)
+	bot.like_user(username)
 	print("Tried to like latest media")
 
 
