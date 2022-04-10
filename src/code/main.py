@@ -38,9 +38,11 @@ def post_instagram(img_path, caption):
 	else:
 		print("Pic upload ended with status code 200" )
 
-
-	bot.like_user(username)
-	print("Tried to like latest media")
+	try:
+		bot.like_user(username)
+		print("Tried to like latest media")
+	except Exception as e:
+		print(f"Instagram Exception in liking: {e}")
 
 	if bot.api.last_response.status_code != 200:
 		print(f"Instagram Like Error: {bot.api.last_response}")
