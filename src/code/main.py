@@ -39,7 +39,7 @@ def post_instagram(img_path, caption):
 		print("Pic upload ended with status code 200" )
 
 	try:
-		bot.like_user(username)
+		bot.like_user(username, amount=1)
 		print("Tried to like latest media")
 	except Exception as e:
 		print(f"Instagram Exception in liking: {e}")
