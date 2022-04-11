@@ -67,6 +67,7 @@ def post_twitter(img_path, caption):
 
 schedule.every().day.at("21:00").do(post_pic)
 
-while True:
-	schedule.run_pending()
-	sleep(1)
+if __name__ == "__main__":
+	while True:
+		schedule.run_pending()
+		sleep(1)
