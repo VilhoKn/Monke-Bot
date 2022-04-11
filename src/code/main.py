@@ -12,7 +12,7 @@ def post_pic():
 		
 	with open("days.txt", "r") as f:
 		day = int(f.read()) + 1
-	with open("day.txt", "w") as f:
+	with open("days.txt", "w") as f:
 		f.write(str(day))
 
 	caption = f"Day {day}"
