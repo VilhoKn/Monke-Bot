@@ -3,5 +3,5 @@ info.py
 .replit
 __pycache__
 config
-day.txt
+days.txt
 venv

@@ -10,9 +10,9 @@ def post_pic():
 	if os.path.isfile("config/daily_monke_pic_uuid_and_cookie.json"):
 		os.remove("config/daily_monke_pic_uuid_and_cookie.json")
 		
-	with open("../files/day.txt", "r") as f:
+	with open("days.txt", "r") as f:
 		day = int(f.read()) + 1
-	with open("../files/day.txt", "w") as f:
+	with open("day.txt", "w") as f:
 		f.write(str(day))
 
 	caption = f"Day {day}"

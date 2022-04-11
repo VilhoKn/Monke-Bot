@@ -7,9 +7,9 @@ def post_pic(new_day, platforms):
 		os.remove("config/daily_monke_pic_uuid_and_cookie.json")
 
 		
-	with open("../files/day.txt", "r") as f:
+	with open("days.txt", "r") as f:
 		day = int(f.read()) + new_day
-	with open("../files/day.txt", "w") as f:
+	with open("days.txt", "w") as f:
 		f.write(str(day))
 
 	caption = f"Day {day}"
